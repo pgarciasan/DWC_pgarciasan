@@ -1,1 +1,1 @@
-alert("Hello! I am an alert box!!");
+alert("GO OUT OF MY PROPERTY!!");
