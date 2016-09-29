@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>U2 Ejercicios JS Tercera Parte</title>
+
+
+    <script type="text/javascript">
+
+        var diasSemana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        function mostrarDias() {
+
+              for (var i = 0; i < diasSemana.length; i++) {
+
+                  alert(diasSemana[i]);
+
+              }
+
+          }
+
+        function diaLetras() {
+
+            var dia = prompt("Introducir número día");
+
+            if ((isFinite(dia)) && !(isNaN(dia))) {
+
+                if (dia < 8 && dia > 0) {
+
+                    alert(diasSemana[dia - 1]);
+
+                } else {
+
+                    alert("Un error Usted ha")
+
+                }
+
+            } else {
+
+                alert("No me haga cosas raras")
+
+            }
+            
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        mostrarDias();
+        diaLetras();
+    </script>
+    <center><a href="index.html">Patrás</a></center>
+</body>
+
+</html>

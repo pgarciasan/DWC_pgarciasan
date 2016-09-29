@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>U2 Ejercicios JS Tercera Parte</title>
+
+    <script type="text/javascript">
+
+        function calculaEdad(e) {
+
+            var d = new Date();
+
+            var n = d.getFullYear();
+
+            e = n - e;
+
+            return (e);
+
+        };
+
+        function saludo() {
+
+            var e = prompt("Printare il tuo ano de nascimento");
+
+            e = calculaEdad(e);
+
+            if (e > 70)
+
+                alert("Caro nono qué bien se conserva");
+
+            else if (e < 18)
+
+                alert("Gugu-tata");
+
+            else
+
+                alert("Cada año, cada losa");
+
+        };
+
+    </script>
+
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        saludo();
+    </script>
+    <br>
+    <center><a href="index.html">Patrás</a></center>
+
+</body>
+
+</html>
