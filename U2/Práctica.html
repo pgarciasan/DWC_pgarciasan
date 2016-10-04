@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+        function generaSurtido() {
+
+            var artículos = ["Bollicaos", "Pastis", "Prensa seria", "Gominolis", "Revistas de lo cardiovascular",
+                "Churros", "Mirra"];
+
+            return artículos;
+
+        }
+
+        function generaSurtido2() {
+
+            var artículos = ["http://meencantamurcia.es/wp-content/uploads/2015/08/bollicaos.jpg",
+             "http://eldiario.com.uy.s3.amazonaws.com/uploads/2016/07/mdma2-620x420.jpg",
+              "http://www.medyatava.com/uploads/news/insides/20140220-10021229.jpg",
+             "http://a404.idata.over-blog.com/450x338/5/01/87/60/archives/0/Alegria.jpg",
+              "http://www.kryolanparaguay.com/gfx/revista-makeup.png",
+                "https://pbs.twimg.com/profile_images/378800000250267557/13b6b00afc3c6122ea18bef2bcdb7b3e.jpeg",
+                 "http://www.taliaessenze.com/asp/img_catalogo/new_photo/_sp/Aceites%20esenciales%20y%20Fragancias%20de%20alta%20perfumer%C3%ADa_MIRRA_01_maxi.jpg"];
+
+            return artículos;
+
+        }
+        function consultaPrecios(artículo) {
+
+            var precios = ["Dos lereles", "2,50", "La voluntá", "0,75", "1,25", "7,15",
+                "5$"];
+
+            return precios[artículo];
+
+        }
+
+        function mostrarSurtido() {
+
+            var p = generaSurtido();
+
+            for (var i = 0; i < p.length; i++) {
+
+                document.write("<p>" + p[i] + " " + consultaPrecios(i));
+
+            }
+
+        }
+
+        function mostrarSurtido2() {
+
+            var p = generaSurtido2();
+
+            for (var i = 0; i < p.length; i++) {
+
+                document.write("<img height='120px' width='120px' src='" + p[i] + "'</img>" + "<br>" + consultaPrecios(i)  + "<br>");
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h3 style="text-align:center">¿Desea consultar nuestro fabuloso y variado surtido de productos? Pues pinche fuerte en la caja</h3>
+    <figure style="text-align:center"><img  src="box.jpg" onclick="mostrarSurtido2();" />
+</body>
+
+</html>
