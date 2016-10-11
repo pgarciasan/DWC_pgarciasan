@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <p>Click the button to get your coordinates.</p>
+
+    <button onclick="getLocation()">Try It</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.getElementById("demo");
+
+        // variables globales para almacenar nuestras coordenadas
+
+        lat = 0;
+        lon = 0;
+
+// funciones para obtener nuestras coordenadas y mostrarlas
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+            lat = position.coords.latitude;
+            lon = position.coords.longitude;
+        }
+
+        // variables supuestas de dos lugares cualesquiera
+
+        var lat_t1 = 40.4167754;
+        var lon_t1 = -3.7037901999999576;
+
+        var lat_t2 = 38.6987066;
+        var lon_t2 = -0.481093699999974;
+
+
+        // funciones para calcular la distancia entre
+
+
+
+        function dis1(lat1, lon1, lat2, lon2) {
+
+            var R = 6371; // km
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+        }
+
+        function dis2(lat1, lon1, lat2, lon2) {
+            var R = 6371; // km
+            var dLat = (lat2 - lat1) * Math.PI / 180;
+            var dLon = (lon2 - lon1) * Math.PI / 180;
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+        }
+
+        // asignamos a variables las funciones y usamos un bucle para mostrar la web correspondiente a la más cercana
+
+        var d1 = dis1(lat, lat_t1, lon, lon_t1);
+        var d2 = dis2(lat, lat_t2, lon, lon_t2);
+
+        if (d1 < d2) {
+            console.log("XXX");
+        } else {
+            console.log("YYY");
+        }
+
+    </script>
+
+</body>
+
+</html>
