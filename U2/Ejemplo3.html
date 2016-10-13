@@ -22,7 +22,7 @@
         var lat_t2 = 38.6987066;
         var lon_t2 = -0.481093699999974;
         // funciones para calcular la distancia entre dos puntos
-        function dis1(lat1, lon1, lat2, lon2) {
+        function dis(lat1, lon1, lat2, lon2) {
             var R = 6371;
             var dLat = (lat2 - lat1) * Math.PI / 180;
             var dLon = (lon2 - lon1) * Math.PI / 180;
@@ -33,20 +33,10 @@
             var d = R * c;
             return d;
         }
-        function dis2(lat1, lon1, lat2, lon2) {
-            var R = 6371;
-            var dLat = (lat2 - lat1) * Math.PI / 180;
-            var dLon = (lon2 - lon1) * Math.PI / 180;
-            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            var d = R * c;
-            return d;
-        }
+
         // variables asignadas a las funciones para mostrar la web correspondiente a la más cercana
-        var d1 = dis1(lat, lat_t1, lon, lon_t1);
-        var d2 = dis2(lat, lat_t2, lon, lon_t2);
+        var d1 = dis(lat, lat_t1, lon, lon_t1);
+        var d2 = dis(lat, lat_t2, lon, lon_t2);
         if (d1 < d2) {
             var r = prompt("¿Ir a la página? Pulsa 'S'")
             if (r == 'S') {
