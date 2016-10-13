@@ -5,21 +5,28 @@
     <meta charset="utf-8">
     <title></title>
     <script type="text/javascript">
-    var l = navigator.languages;
-    for (var i = 0; i < l.length; i++) {
-      if ( l[i] == "es-ES" ){
-    window.location="https://pgarciasan.github.io/DIW_pgarciasan/U2/EJ10.html";
-      }
-      else if ( l[i] == "en-GB" ) {
-        window.location="https://pgarciasan.github.io/DIW_pgarciasan/U2/OpCasa.html";
-      }
-    }
+        var l = navigator.languages;
+        for (var i = 0; i < l.length; i++) {
+            if (l[i] == "es-ES") {
+
+                var r = prompt("¿Ir a la página? Pulsa 'S'")
+                if (r == 'S') {
+                    window.location = "https://pgarciasan.github.io/DIW_pgarciasan/U2/pag1.html";
+                }
+
+            } else if (l[i] == "en-GB") {
+
+                var r = prompt("¿Ir a la página? Pulsa 'S'")
+                if (r == 'S') {
+                    window.location = "https://pgarciasan.github.io/DIW_pgarciasan/U2/pag2.html";
+                }
+
+            }
+        }
     </script>
 </head>
 
 <body>
-    <script type="text/javascript">
-    </script>
 
 </body>
 
