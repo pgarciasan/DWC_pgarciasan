@@ -2,16 +2,12 @@
 <html>
 
 <body>
-
-
     <script>
-
         // variables globales para almacenar nuestras coordenadas
         lat = 0;
         lon = 0;
-        // funciones para obtener nuestras coordenadas y mostrarlas
+        // función para obtener nuestras coordenadas
         function getPosition(position) {
-
             lat = position.coords.latitude;
             lon = position.coords.longitude;
         }
@@ -20,7 +16,7 @@
         var lon_t1 = -3.7037901999999576;
         var lat_t2 = 38.6987066;
         var lon_t2 = -0.481093699999974;
-        // funciones para calcular la distancia entre dos puntos
+        // función para calcular la distancia entre dos puntos
         function dis(lat1, lon1, lat2, lon2) {
             var R = 6371;
             var dLat = (lat2 - lat1) * Math.PI / 180;
