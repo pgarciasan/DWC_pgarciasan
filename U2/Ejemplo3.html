@@ -9,7 +9,8 @@
         // variables globales para almacenar nuestras coordenadas
         lat = 0;
         lon = 0;
-        // funciones para obtener nuestras coordenadas
+        // funciones para obtener nuestras coordenadas y mostrarlas
+        function getPosition(position) {
             x.innerHTML = "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude;
             lat = position.coords.latitude;
