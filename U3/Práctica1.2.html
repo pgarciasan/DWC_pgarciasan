@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>U3. Práctica 1.2</title>
+    <script type="text/javascript">
+        var letras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ",
+            "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+        ];
+        var letra = letras[Math.floor(Math.random() * letras.length)];
+        document.write("<form name='formuchuli'>");
+        document.write("<h1>Manipular Arrays</h1>");
+        document.write("<p>Introduce algunas palabras que empiecen por: " + letra + " </p>");
+        document.write("<textarea name='texto' rows='3' cols='20'></textarea><br>");
+        document.write("<input type='button' name='botón' value='Aceptar' onclick='letraGame()'></input>");
+        document.write("</form>");
+        function letraGame() {
+            var ventana = window.open("", "", "width=400,height=300");
+            ventana.document.write("<meta charset='utf-8'>");
+            var palabras = new Array();
+            palabras = formuchuli.texto.value.split(" ");
+            var j = 0;
+            var puntos = 0;
+            var errores = new Array();
+            for (var i = 0; i < palabras.length; i++) {
+                if (palabras[i].charAt(0) == letra) {
+                    puntos = puntos + 1;
+                } else {
+                    errores[j] = palabras[i];
+                    j++;
+                }
+            }
+            if (errores.length > 0) {
+                ventana.document.write("Has perdido! Ohhhhhhhh! Tienes unos cuantos errores:<br> " + errores.join("<br>"));
+            } else {
+                ventana.document.write("You win. Puntuación: " + puntos);
+            }
+        }
+    </script>
+    <style media="screen">
+        input,
+        textarea {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

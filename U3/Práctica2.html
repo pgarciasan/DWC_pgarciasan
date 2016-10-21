@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>U3. Práctica 1.2</title>
+    <script type="text/javascript">
+        var ventana;
+        var crono = new Object();
+
+        crono = {
+            inicio: new Date()
+
+            // timer:;
+            // reiniciar: function() {
+            //   ventana.document.body.innerHTML = "xxx";
+            //
+            //
+            // }
+            // empezar: function() {
+            //     var ventana = window.open("", "", "width=400,height=300");
+            //     ventana.document.write(crono.inicio);
+            //
+            // }
+            // contar: function() {}
+            // formatear: function() {}
+            // var interval = setInterval(crono.inicio, 100);
+        }
+
+
+
+        crono.inicio = new Date();
+
+        crono.timer;
+
+        crono.empezar = function() {
+
+
+
+
+
+            ventana = window.open("", "", "width=400,height=300");
+
+
+
+            crono.contar();
+        }
+        crono.reiniciar = function() {
+            ventana.document.body.innerHTML = crono.inicio;
+        }
+        crono.contar = function() {
+            var d = new Date();
+            var h = d.getHours();
+            var m = d.getMinutes();
+            var s = d.getSeconds();
+            ventana.document.body.innerHTML = h + " : " + m + " : " + s;
+            crono.timer = setTimeout("crono.contar()", 1000);
+        }
+    </script>
+    <style media="screen">
+        input,
+        textarea {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cronómetro</h1>
+    <input type="button" name="botón1" value="Aceptar" onclick="crono.empezar()"></input>
+    <input type="button" name="botón2" value="Aceptar" onclick="crono.reiniciar()"></input>
+</body>
+
+</html>

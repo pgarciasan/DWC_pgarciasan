@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>U3. Práctica 1.1</title>
+    <script type="text/javascript">
+        function hacerCosasConPalabras() {
+            var palabras = new Array();
+            palabras = formuchuli.texto.value.split(" ");
+            var largota = palabras[0];
+            for (var i = 1; i < palabras.length; i++) {
+
+                if (largota.length < palabras[i].length) {
+                    largota = palabras[i];
+                }
+
+            }
+            var cortita = palabras[0];
+            for (var i = 1; i < palabras.length; i++) {
+
+                if (cortita.length > palabras[i].length) {
+                    cortita = palabras[i];
+                }
+
+            }
+            var ventana = window.open("", "", "width=400,height=300")
+            palabras.sort();
+            ventana.document.write("<meta charset='utf-8'>");
+            ventana.document.write("<p>Primera palabra " + palabras[0]);
+            ventana.document.write("<p>Última palabra " + palabras[palabras.length - 1]);
+            ventana.document.write("<p>Palabra más larga " + largota);
+            ventana.document.write("<p>Palabra más corta" + cortita);
+            ventana.document.write("<p>Palabras ordenadas" + palabras.join(" - "));
+            ventana.document.write("<p>Número de palabras" + palabras.length);
+        }
+    </script>
+    <style media="screen">
+        input,
+        textarea {
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Manipular Arrays</h1>
+    <form name="formuchuli">
+        <p>
+            Introduce algunas palabras:
+        </p>
+        <textarea name="texto" rows="3" cols="20"></textarea><br>
+        <input type="button" name="botón" value="Aceptar" onclick="hacerCosasConPalabras()"></input>
+    </form>
+</body>
+
+</html>
