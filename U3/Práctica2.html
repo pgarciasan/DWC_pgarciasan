@@ -7,55 +7,95 @@
     <script type="text/javascript">
         var ventana;
         var crono = new Object();
+        console.log(ventana);
+        // crono = {
+        //     inicio: new Date()
 
-        crono = {
-            inicio: new Date()
-
-            // timer:;
-            // reiniciar: function() {
-            //   ventana.document.body.innerHTML = "xxx";
-            //
-            //
-            // }
-            // empezar: function() {
-            //     var ventana = window.open("", "", "width=400,height=300");
-            //     ventana.document.write(crono.inicio);
-            //
-            // }
-            // contar: function() {}
-            // formatear: function() {}
-            // var interval = setInterval(crono.inicio, 100);
-        }
+        // timer:;
+        // reiniciar: function() {
+        //   ventana.document.body.innerHTML = "xxx";
+        //
+        //
+        // }
+        // empezar: function() {
+        //     var ventana = window.open("", "", "width=400,height=300");
+        //     ventana.document.write(crono.inicio);
+        //
+        // }
+        // contar: function() {}
+        // formatear: function() {}
+        // var interval = setInterval(crono.inicio, 100);
+        // }
 
 
 
-        crono.inicio = new Date();
-
+        crono.inicio = new Date().getTime();
+        var date = crono.inicio;
         crono.timer;
-
+        var x = 1;
         crono.empezar = function() {
 
+            if (x == 1) {
+                ventana = window.open("", "", "width=400,height=300");
 
-
-
-
-            ventana = window.open("", "", "width=400,height=300");
-
+                x++;
+            }
 
 
             crono.contar();
         }
         crono.reiniciar = function() {
-            ventana.document.body.innerHTML = crono.inicio;
+          clearTimeout(crono.timer);
+            var d = new Date().getTime();
+            var dd = new Date().getTime();
+            var d2 = new Date(d - dd);
+            var h = d2.getUTCHours();
+            var m = d2.getUTCMinutes();
+            var s = d2.getUTCSeconds();
+
+            ventana.document.body.innerHTML = h + " " + " " + m + " " + s;
+
         }
         crono.contar = function() {
-            var d = new Date();
-            var h = d.getHours();
-            var m = d.getMinutes();
-            var s = d.getSeconds();
-            ventana.document.body.innerHTML = h + " : " + m + " : " + s;
+            // var d = new Date();
+            // console.log(d);
+            // d = d - date;
+            //   console.log(d);
+            // var h = d.getHours();
+            // var m = d.getMinutes();
+            // var s = d.getSeconds();
+            // var h = d.getHours() - date.getHours();
+            // var m = d.getMinutes() - date.getMinutes();
+            // var s = d.getSeconds() - date.getSeconds();
+
+            // var total=d.setTime(parseInt(tiempo-milisegundos));
+
+            var d = new Date().getTime();
+            var d2 = new Date(d - date);
+            var h = d2.getUTCHours();
+            var m = d2.getUTCMinutes();
+            var s = d2.getUTCSeconds();
             crono.timer = setTimeout("crono.contar()", 1000);
+            ventana.document.body.innerHTML = h + " " + " " + m + " " + s;
+            if (ventana.closed){
+              x = 1;
+                crono.reiniciar ();
+            }
+
         }
+
+        //        fecha=new Date();
+        // dia=fecha.getDate();
+        // mes=fecha.getMonth()+1;
+        // anio=fecha.getYear();
+        //
+        // document.theForm.campo1.value=dia+"/"+mes+"/"+anio;
+        //
+        // tiempo=fecha.getTime();
+        // total=fecha.setTime(parseInt(tiempo+milisegundos));
+        // dia=fecha.getDate();
+        // mes=fecha.getMonth()+1;
+        // anio=fecha.getYear();
     </script>
     <style media="screen">
         input,
