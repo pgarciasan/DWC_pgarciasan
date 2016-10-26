@@ -3,99 +3,62 @@
 
 <head>
     <meta charset="utf-8">
-    <title>U3. Práctica 1.2</title>
+    <title>U3. Práctica 2.1</title>
     <script type="text/javascript">
-        var ventana;
         var crono = new Object();
-        console.log(ventana);
-        // crono = {
-        //     inicio: new Date()
-
-        // timer:;
-        // reiniciar: function() {
-        //   ventana.document.body.innerHTML = "xxx";
-        //
-        //
-        // }
-        // empezar: function() {
-        //     var ventana = window.open("", "", "width=400,height=300");
-        //     ventana.document.write(crono.inicio);
-        //
-        // }
-        // contar: function() {}
-        // formatear: function() {}
-        // var interval = setInterval(crono.inicio, 100);
-        // }
-
-
-
-        crono.inicio = new Date().getTime();
-        var date = crono.inicio;
+        crono.inicio;
         crono.timer;
-        var x = 1;
+        var ventana;
+        var x = 0; // para la asignación de crono.inicio la primera vez y tras parar la cuenta;
+        var y = 0; // para bloquear la invocación acumulativa de contar() en empezar();
+        var d; // 2ª referencia tiempo
+        var h; // horas
+        var m; // minutos
+        var s; // segundos
         crono.empezar = function() {
-
-            if (x == 1) {
+            if (typeof ventana == "undefined" || (s == 0 && ventana.closed)) {
                 ventana = window.open("", "", "width=400,height=300");
-
-                x++;
             }
-
-
-            crono.contar();
+            if (y == 0) {
+                y++;
+                crono.contar();
+            }
         }
         crono.reiniciar = function() {
-          clearTimeout(crono.timer);
-            var d = new Date().getTime();
-            var dd = new Date().getTime();
-            var d2 = new Date(d - dd);
-            var h = d2.getUTCHours();
-            var m = d2.getUTCMinutes();
-            var s = d2.getUTCSeconds();
-
-            ventana.document.body.innerHTML = h + " " + " " + m + " " + s;
-
+            clearTimeout(crono.timer);
+            crono.inicio = new Date().getTime();
+            d = new Date().getTime();
+            d = new Date(d - crono.inicio);
+            h = crono.formatear(d.getUTCHours());
+            m = crono.formatear(d.getUTCMinutes());
+            s = crono.formatear(d.getUTCSeconds());
+            ventana.document.body.innerHTML = h + " : " + m + " : " + s;
+            x = 0;
+            y = 0;
         }
         crono.contar = function() {
-            // var d = new Date();
-            // console.log(d);
-            // d = d - date;
-            //   console.log(d);
-            // var h = d.getHours();
-            // var m = d.getMinutes();
-            // var s = d.getSeconds();
-            // var h = d.getHours() - date.getHours();
-            // var m = d.getMinutes() - date.getMinutes();
-            // var s = d.getSeconds() - date.getSeconds();
-
-            // var total=d.setTime(parseInt(tiempo-milisegundos));
-
-            var d = new Date().getTime();
-            var d2 = new Date(d - date);
-            var h = d2.getUTCHours();
-            var m = d2.getUTCMinutes();
-            var s = d2.getUTCSeconds();
-            crono.timer = setTimeout("crono.contar()", 1000);
-            ventana.document.body.innerHTML = h + " " + " " + m + " " + s;
-            if (ventana.closed){
-              x = 1;
-                crono.reiniciar ();
+            if (x == 0) {
+                crono.inicio = new Date().getTime();
+                x++;
             }
-
+            d = new Date().getTime();
+            d = new Date(d - crono.inicio);
+            h = crono.formatear(d.getUTCHours());
+            m = crono.formatear(d.getUTCMinutes());
+            s = crono.formatear(d.getUTCSeconds());
+            crono.timer = setTimeout("crono.contar()", 1000);
+            ventana.document.body.innerHTML = h + " : " + m + " : " + s;
+            if (ventana.closed) {
+                crono.reiniciar();
+                ventana = undefined;
+            }
         }
-
-        //        fecha=new Date();
-        // dia=fecha.getDate();
-        // mes=fecha.getMonth()+1;
-        // anio=fecha.getYear();
-        //
-        // document.theForm.campo1.value=dia+"/"+mes+"/"+anio;
-        //
-        // tiempo=fecha.getTime();
-        // total=fecha.setTime(parseInt(tiempo+milisegundos));
-        // dia=fecha.getDate();
-        // mes=fecha.getMonth()+1;
-        // anio=fecha.getYear();
+        crono.formatear = function(x) {
+                if (x < 10) {
+                    x = "0" + x;
+                }
+                return x;
+            }
     </script>
     <style media="screen">
         input,
@@ -103,13 +66,16 @@
             display: block;
             margin: 10px;
         }
+        body{
+          text-align:center;
+        }
     </style>
 </head>
 
 <body>
     <h1>Cronómetro</h1>
-    <input type="button" name="botón1" value="Aceptar" onclick="crono.empezar()"></input>
-    <input type="button" name="botón2" value="Aceptar" onclick="crono.reiniciar()"></input>
+    <button onclick="crono.empezar()">Contar</button>
+    <button onclick="crono.reiniciar()">Parar</button>
 </body>
 
 </html>
