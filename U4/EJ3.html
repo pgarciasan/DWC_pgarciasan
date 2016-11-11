@@ -6,6 +6,7 @@
     <script type="text/javascript">
         function recorreTag(){
           for (var i = 0; i < document.getElementById("contiene_ps").getElementsByTagName("p").length; i++) {
+            document.getElementById("contiene_ps").getElementsByTagName("p")[i].textContent = "Este párrafo es el número " + [i + 1];
             document.getElementById("contiene_ps").getElementsByTagName("p")[i].style.color = document.getElementById("txtColor").value;
           }
         }
