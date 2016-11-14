@@ -15,13 +15,13 @@
     </style>
     <script type="text/javascript">
       function ocultar(){
-          document.getElementsByTagName("p")[1].style.display ="none";
+          document.getElementsByTagName("p")[1].setAttribute("class", "oculto");
       }
     </script>
 </head>
 
 <body>
-    <p>Lorem ipsum dolor sit amet,
+    <p onclick="cambiar()">Lorem ipsum dolor sit amet,
         <a href="http://prueba">consectetuer adipiscing elit</a>. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede.
         Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. <a href="http://prueba2">Fusce porta</a>. Duis
         pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque. Donec lacus neque, vehicula in, eleifend vitae, venenatis ac,
@@ -44,10 +44,11 @@
           }
           document.write("<h3>Enlazan a http://prueba: " + n + "</h3>");
           document.write("<h3>Enlaces p3: " + document.body.getElementsByTagName("p")[2].getElementsByTagName("a").length  + "</h3>");
-          document.getElementsByTagName("p")[2].style.display = "none";
-
-
-
+          document.getElementsByTagName("p")[1].setAttribute("class", "oculto");
+          function cambiar(){
+            document.getElementsByTagName("p")[0].setAttribute("class", "oculto");
+            document.getElementsByTagName("p")[1].setAttribute("class", "visible");
+          }
         </script>
 </body>
 

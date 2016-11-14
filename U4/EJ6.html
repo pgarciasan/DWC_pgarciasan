@@ -39,12 +39,10 @@
           }
           document.write("<h3>Enlazan a http://prueba: " + n + "</h3>");
           document.write("<h3>Enlaces p3: " + document.body.getElementsByTagName("p")[2].getElementsByTagName("a").length  + "</h3>");
-          document.getElementsByTagName("p")[2].style.display = "none";
-
-
+          document.getElementsByTagName("p")[1].setAttribute("class", "oculto");
           function cambiar(){
             document.getElementsByTagName("p")[0].setAttribute("class", "oculto");
-            document.getElementsByTagName("p")[2].setAttribute("class", "visible");
+            document.getElementsByTagName("p")[1].setAttribute("class", "visible");
           }
         </script>
 </body>
