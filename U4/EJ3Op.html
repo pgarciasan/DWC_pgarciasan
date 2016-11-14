@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>U4 - EJ3</title>
+    <script type="text/javascript">
+        function recorreTag(){
+          for (var i = 0; i < document.querySelectorAll("p").length ; i++) {
+              document.querySelectorAll("p")[i].textContent = "Este párrafo es el número " + [i + 1];
+            	document.querySelectorAll("p")[i].style.color = document.querySelector("#txtColor").value;
+          }
+        }
+
+      /*
+        función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
+        se ejecuta automáticamente al pinchar en el botón puesto que este elemento se encuentra dentro de '#contiene ps'
+      */
+
+      function resaltar(){
+        for (var i = 0; i < document.querySelectorAll("p").length; i++) {
+          document.querySelector("p:nth-child(" + (i + 1) + ")").style.color = "white";
+          document.querySelector("p:nth-child(" + (i + 1) + ")").style.background = document.querySelector("#txtColor").value;
+        }
+      }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="contiene_ps" onclick="resaltar()">
+        <p>?</p>
+        <p>?</p>
+        <p>?</p>
+        <p>?</p>
+        <p>?</p>
+        <p>?</p>
+        <div id="cambiame">
+            <input type="color" id="txtColor" value="#FF0000">
+            <button id="actualizar" onclick="recorreTag();">Modificar los párrafos!</button>
+        </div>
+    </div>
+</body>
+
+</html>
