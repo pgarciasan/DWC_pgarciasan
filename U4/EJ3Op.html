@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
-    <title>U4 - EJ3</title>
+    <title>U4 - EJ3 Opcional</title>
     <script type="text/javascript">
-        function recorreTag(){
-          for (var i = 0; i < document.querySelectorAll("p").length ; i++) {
-              document.querySelectorAll("p")[i].textContent = "Este párrafo es el número " + [i + 1];
-            	document.querySelectorAll("p")[i].style.color = document.querySelector("#txtColor").value;
-          }
+        function recorreTag() {
+            for (var i = 0; i < document.querySelectorAll("p").length; i++) {
+                document.querySelectorAll("p")[i].textContent = "Este párrafo es el número " + [i + 1];
+                document.querySelectorAll("p")[i].style.color = document.querySelector("#txtColor").value;
+            }
         }
 
+        // función que usa la pseudoclase 'hover' para rellenar el párrafo con el color del input
+        // en el momento en que un 'p' pasa a estado 'hover' se añade el estilo, ya que la función se encuentra en el elemento padre
+        // para ejecutar la función hay que clicar en 'p', siendo un evento 'onclick' (llamada + instante p:hover = aplicar estilo)
 
-      // función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
-      // se ejecuta en 2º término en el button para que quede blanco el texto de recorreTag()
-
-      function resaltar(){
-        for (var i = 0; i < document.querySelectorAll("p").length; i++) {
-          document.querySelector("p:nth-child(" + (i + 1) + ")").style.color = "white";
-          document.querySelector("p:nth-child(" + (i + 1) + ")").style.background = document.querySelector("#txtColor").value;
+        function rellenar() {
+            document.querySelector("p:hover").style.color = "white";
+            document.querySelector("p:hover").style.background = document.querySelector("#txtColor").value;
         }
-      }
+
+        // función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
+        // se ejecuta en 2º término en el button para que quede blanco el texto de recorreTag()
+
+        function resaltar() {
+            for (var i = 0; i < document.querySelectorAll("p").length; i++) {
+                document.querySelector("p:nth-child(" + (i + 1) + ")").style.color = "white";
+                document.querySelector("p:nth-child(" + (i + 1) + ")").style.background = document.querySelector("#txtColor").value;
+            }
+        }
     </script>
 </head>
 
 <body>
-    <div id="contiene_ps" >
+    <div id="contiene_ps" onclick="rellenar()">
         <p>?</p>
         <p>?</p>
         <p>?</p>
