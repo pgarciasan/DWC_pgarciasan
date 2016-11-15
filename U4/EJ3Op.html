@@ -13,11 +13,12 @@
         }
 
         // Función que usa la pseudoclase 'hover' para rellenar el párrafo con el color del input
-        // Ejecutar clicando en un 'p' (función en elemento padre), siendo un evento 'onclick' (llamada + instante p:hover = aplicar estilo)
+        // Ejecutar clicando en el 'p' (llamada + instante p:hover = aplicar estilo en el 'p' objetivo)
 
         function rellenar() {
             document.querySelector("p:hover").style.color = "white";
             document.querySelector("p:hover").style.background = document.querySelector("#txtColor").value;
+
         }
 
         // Función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
@@ -33,13 +34,13 @@
 </head>
 
 <body>
-    <div id="contiene_ps" onclick="rellenar()">
-        <p>?</p>
-        <p>?</p>
-        <p>?</p>
-        <p>?</p>
-        <p>?</p>
-        <p>?</p>
+    <div id="contiene_ps">
+        <p onclick="rellenar()">?</p>
+        <p onclick="rellenar()">?</p>
+        <p onclick="rellenar()">?</p>
+        <p onclick="rellenar()">?</p>
+        <p onclick="rellenar()">?</p>
+        <p onclick="rellenar()">?</p>
         <div id="cambiame">
             <input type="color" id="txtColor" value="#FF0000">
             <button id="actualizar" onclick="recorreTag();resaltar();">Modificar los párrafos!</button>
