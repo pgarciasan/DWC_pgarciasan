@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Crea elementos del DOM</title>
+    <script type="text/javascript">
+      function creaDOM(){
+        var titular = document.createElement("h1");
+        var texto = document.createTextNode("'ÖSTERREICH IST NICHT DEUTSCHLAND': v. Bismarck");
+        titular.appendChild(texto);
+        document.body.appendChild(titular);
+        var img = document.createElement("img");
+        img.setAttribute("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Deutsches_Reich_(1871-1918)-de.svg/2000px-Deutsches_Reich_(1871-1918)-de.svg.png")
+        img.setAttribute("height","800");
+        img.setAttribute("Width","1000");
+        document.body.appendChild(img);
+      }
+    </script>
+</head>
+<body onload="creaDOM()">
+</body>
+</html>
