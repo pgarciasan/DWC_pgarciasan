@@ -12,17 +12,16 @@
             }
         }
 
-        // función que usa la pseudoclase 'hover' para rellenar el párrafo con el color del input
-        // en el momento en que un 'p' pasa a estado 'hover' se añade el estilo, ya que la función se encuentra en el elemento padre
-        // para ejecutar la función hay que clicar en 'p', siendo un evento 'onclick' (llamada + instante p:hover = aplicar estilo)
+        // Función que usa la pseudoclase 'hover' para rellenar el párrafo con el color del input
+        // Ejecutar clicando en un 'p' (función en elemento padre), siendo un evento 'onclick' (llamada + instante p:hover = aplicar estilo)
 
         function rellenar() {
             document.querySelector("p:hover").style.color = "white";
             document.querySelector("p:hover").style.background = document.querySelector("#txtColor").value;
         }
 
-        // función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
-        // se ejecuta en 2º término en el button para que quede blanco el texto de recorreTag()
+        // Función que usa la pseudoclase 'nth-child' para rellenar el párrafo con el color del input
+        // Se ejecuta en 2º término en el button para que quede blanco el texto de recorreTag()
 
         function resaltar() {
             for (var i = 0; i < document.querySelectorAll("p").length; i++) {
