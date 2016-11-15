@@ -31,7 +31,7 @@
         <a href="http://prueba5">Sed non lectus non est pellentesque</a> auctor.</p>
         <script type="text/javascript">
           document.write("<h3>Enlaces: " + document.getElementsByTagName("a").length + "</h3>");
-          document.write("<h3>Enlaces: " + document.getElementsByTagName("a")[document.getElementsByTagName("a").length - 2].getAttribute("href")  + "</h3>");
+          document.write("<h3>Penúltimo enlace: " + document.getElementsByTagName("a")[document.getElementsByTagName("a").length - 2].getAttribute("href")  + "</h3>");
           var n = 0;
           for (var i = 0; i < document.getElementsByTagName("a").length; i++) {
             if(document.getElementsByTagName("a")[i].getAttribute("href") == "http://prueba")
