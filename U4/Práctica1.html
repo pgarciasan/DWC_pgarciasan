@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<style media="screen">
+		.columna {
+			display: inline-block;
+			width: 180px;
+			height: 20px;
+			border-radius: 8px;
+			border: 2px solid navy;
+			text-align: center;
+		}
+	</style>
+	<script>
+		var StarWarsFilms = [{
+			titulo: "Episodi IV",
+			nombre: "Una Nueva Esperanza",
+			any: 1977,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi V",
+			nombre: "El Imperio Contraataca",
+			any: 1980,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi VI",
+			nombre: "El Retorno del Jedi",
+			any: 1984,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi I",
+			nombre: "La Amenaza Fantasma",
+			any: 1999,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi II",
+			nombre: "El ataque de los clones",
+			any: 2002,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi III",
+			nombre: "La Venganza de los Sith",
+			any: 2005,
+			director: "George Lucas"
+		}, {
+			titulo: "Episodi VII",
+			nombre: "El Despertar de la Fuerza",
+			any: 2015,
+			director: "J.J. Abrams"
+		}];
+
+		function cargaInfo() {
+
+			var titulo = document.createElement("h1");
+			var texto = document.createTextNode("La saga Star Wars");
+			titulo.appendChild(texto);
+			titulo.style.color = "blue";
+			titulo.style.fontFamily = "Calibri";
+
+			var tabla = document.createElement("div");
+			var fila = document.createElement("div");
+			var celda;
+			var texto;
+			tabla.appendChild(fila);
+
+			for (campo in StarWarsFilms[0]) {
+				celda = document.createElement("div");
+				texto = document.createTextNode(campo);
+				celda.appendChild(texto);
+				celda.style.fontWeight = "bold";
+				celda.setAttribute("class", "columna");
+				fila.appendChild(celda);
+			}
+
+			for (var i = 0; i < StarWarsFilms.length; i++) {
+				fila = document.createElement("div");
+				for (campo in StarWarsFilms[i]) {
+					celda = document.createElement("div");
+					texto = document.createTextNode(StarWarsFilms[i][campo]);
+					celda.appendChild(texto);
+					celda.setAttribute("class", "columna");
+					fila.appendChild(celda)
+				}
+				tabla.appendChild(fila);
+			}
+
+			document.body.appendChild(titulo);
+			document.body.appendChild(tabla);
+
+			var StarWarsCarteles = [{
+				imagen: "http://observandocine.com/wp-content/uploads/2015/11/Star_Wars_Episode_IV-A_New_Hope_Theatrical_Release_Poster.jpg",
+				imdb: "http://www.imdb.com/title/tt0076759/",
+			}, {
+				imagen: "http://1.bp.blogspot.com/-ywD3FLWQUkc/VNlW7OUuYPI/AAAAAAAAKH8/zNkOWpbytYo/s1600/Episode_5.jpg",
+				imdb: "http://www.imdb.com/title/tt0080684/",
+			}, {
+				imagen: "http://observandocine.com/wp-content/uploads/2015/12/star_wars_vi___return_of_the_jedi___movie_poster_by_nei1b-d5t3b8d.jpg",
+				imdb: "http://www.imdb.com/title/tt0086190/",
+			}, {
+				imagen: "https://constantmotions.files.wordpress.com/2014/03/starwars4.jpg",
+				imdb: "http://www.imdb.com/title/tt0120915/",
+			}, {
+				imagen: "http://img1.wikia.nocookie.net/__cb20130822173923/starwars/images/2/24/EPII_AotC_poster.png",
+				imdb: "http://www.imdb.com/title/tt0121765/",
+			}, {
+				imagen: "http://observandocine.com/wp-content/uploads/2015/11/star-wars-iii.jpg",
+				imdb: "http://www.imdb.com/title/tt0121766/",
+			}, {
+				imagen: "http://vignette1.wikia.nocookie.net/es.starwars/images/0/04/Star_Wars_Episode_VII_The_Force_Awakens.png/revision/latest?cb=20151018161842",
+				imdb: "http://www.imdb.com/title/tt2488496/",
+			}]
+
+			var a;
+			var img;
+
+			for (var i = 0; i < StarWarsCarteles.length; i++) {
+				a = document.createElement("a");
+				a.setAttribute("href", StarWarsCarteles[i].imdb)
+				img = document.createElement("img");
+				img.setAttribute("src", StarWarsCarteles[i].imagen)
+				img.setAttribute("height", "300");
+				img.setAttribute("Width", "200");
+				img.style.padding = "15px";
+				a.appendChild(img);
+				document.body.appendChild(a);
+			}
+
+		}
+	</script>
+</head>
+
+<body onload="cargaInfo()">
+</body>
+
+</html>

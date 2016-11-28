@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        var titulo = document.createElement("h1");
+        var text = document.createTextNode("Mi lista de la compra");
+        titulo.style.fontFamily = "Calibri";
+        titulo.appendChild(text);
+
+        var cajatex = document.createElement("input");
+        cajatex.setAttribute("type", "text");
+
+        var boton = document.createElement("button");
+        boton.setAttribute("onclick", "añadir()");
+        text = document.createTextNode("Añadir");
+        boton.appendChild(text);
+
+        var categories = document.createElement("select");
+        cat1 = document.createElement("option");
+        cat2 = document.createElement("option");
+        cat3 = document.createElement("option");
+        cat4 = document.createElement("option");
+        cat1.setAttribute("value", "charcutería");
+        cat2.setAttribute("value", "congelados");
+        cat3.setAttribute("value", "limpieza");
+        cat4.setAttribute("value", "pecadillos");
+        var t1 = document.createTextNode("charcutería");
+        var t2 = document.createTextNode("congelados");
+        var t3 = document.createTextNode("limpieza");
+        var t4 = document.createTextNode("pecadillos");
+        cat1.appendChild(t1);
+        cat2.appendChild(t2);
+        cat3.appendChild(t3);
+        cat4.appendChild(t4);
+        categories.appendChild(cat1);
+        categories.appendChild(cat2);
+        categories.appendChild(cat3);
+        categories.appendChild(cat4);
+
+        var d;
+        var producto;
+
+        function añadir() {
+            if (cajatex.value == "" || !(isNaN(cajatex.value))) {
+                alert("Rellene el campo con letritas");
+            } else {
+                if (categories.value == "charcutería") {
+                    if (!(document.querySelector('.charcutería'))) {
+                        d = document.createElement("div");
+                        d.setAttribute("class", "charcutería");
+                        d.setAttribute("onclick", "eliminar()");
+                        d.style.background = "pink";
+                        document.body.appendChild(d);
+                    }
+                    d = document.createElement("div");
+                    producto = document.createTextNode(cajatex.value);
+                    d.appendChild(producto);
+                    document.querySelector('.charcutería').appendChild(d);
+                } else if (categories.value == "congelados") {
+                    if (!(document.querySelector('.congelados'))) {
+                        d = document.createElement("div");
+                        d.setAttribute("class", "congelados");
+                        d.setAttribute("onclick", "eliminar()");
+                        d.style.background = "lightblue";
+                        document.body.appendChild(d);
+                    }
+                    d = document.createElement("div");
+                    producto = document.createTextNode(cajatex.value);
+                    d.appendChild(producto);
+                    document.querySelector('.congelados').appendChild(d);
+                } else if (categories.value == "limpieza") {
+                    if (!(document.querySelector('.limpieza'))) {
+                        d = document.createElement("div");
+                        d.setAttribute("class", "limpieza");
+                        d.setAttribute("onclick", "eliminar()");
+                        d.style.background = "lightgreen";
+                        document.body.appendChild(d);
+                    }
+                    d = document.createElement("div");
+                    producto = document.createTextNode(cajatex.value);
+                    d.appendChild(producto);
+                    document.querySelector('.limpieza').appendChild(d);
+                } else {
+                    if (!(document.querySelector('.pecadillos'))) {
+                        d = document.createElement("div");
+                        d.setAttribute("class", "pecadillos");
+                        d.setAttribute("onclick", "eliminar()");
+                        d.style.background = "purple";
+                        document.body.appendChild(d);
+                    }
+                    d = document.createElement("div");
+                    producto = document.createTextNode(cajatex.value);
+                    d.appendChild(producto);
+                    document.querySelector('.pecadillos').appendChild(d);
+                }
+            }
+        }
+
+        function eliminar() {
+            d = document.querySelector("div > div:hover");
+            if (d.parentNode.children.length == 1) {
+                d.parentNode.parentNode.removeChild(d.parentNode);
+            } else {
+                d.parentNode.removeChild(d);
+            }
+        }
+
+        function listaCompra() {
+          document.body.appendChild(titulo);
+          document.body.appendChild(cajatex);
+          document.body.appendChild(boton);
+          document.body.appendChild(categories);
+        }
+    </script>
+</head>
+
+<body onload="listaCompra()">
+
+</body>
+
+</html>
