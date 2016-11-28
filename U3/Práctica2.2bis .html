@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+  <title>Cronómetro</title>
+	<script>
+	/*Creamos crono con Object
+	Alternativas:
+		- Literales
+		- Crear un constructor
+	*/
+  crono = new Object();
+	/*Vuelve a tomar la referencia temporal,
+	reinicia el timer y muestra 0's en la ventana
+	NO crea una nueva ventana
+	*/
+  crono.reiniciar = function(){
+		crono.inicio = new Date().getTime();
+		crono.parado = crono.inicio;
+    clearInterval(crono.timer);
+    ventana.document.body.innerHTML = "<h2>00:00:00</h2>";
+  }
+	/*Crea la ventana si no existe y empieza la cuenta*/
+  crono.empezar = function(){
+    //ponemos todo a 0 y creamos la ventana si no existe
+    if (!window.ventana){
+        ventana = window.open("","","width=400,height=300");
+        crono.reiniciar();
+    }
+		//cambio la referencia de inicio si he parado el crono
+		crono.inicio += new Date().getTime() - crono.parado;
+    //Empezamos a contar e indicamos que se ejecute esta función nuevamente dentro de 1s para que no pare
+		crono.timer = setInterval(crono.contar,1000);
+  }
+  crono.contar = function(){
+		// obtenemos la fecha actual
+		var actual = new Date().getTime();
+		// obtenemos la diferencia entre la fecha actual y la de inicio
+		var diferencia = new Date(actual-crono.inicio);
+		// mostramos la diferencia entre la fecha actual y la inicial
+		var resultado = crono.formatear(diferencia.getUTCHours())+":" +
+		crono.formatear(diferencia.getUTCMinutes()) +
+		":" + crono.formatear(diferencia.getUTCSeconds());
+		ventana.document.body.innerHTML = "<h2>" + resultado + "</h2>";
+	}
+	/* Función que pone un 0 delante de un valor si es necesario */
+	crono.formatear = function(time) {
+		return (time < 10) ? "0" + time : + time;
+	}
+	/* Parar resetea el temporizador para que se reinicie la cuenta*/
+  crono.parar = function(){
+		crono.parado = new Date().getTime();
+    clearInterval(crono.timer);
+  }
+	</script>
+
+	<style>
+		/*Alineamos en el centro*/
+		.crono {
+			text-align:center;
+			width:200px;
+		}
+	</style>
+</head>
+
+<body>
+<h1>Cronómetro</h1>
+<div class="crono">
+	<input type="button" value="Reniciar" onclick="crono.reiniciar();">
+  <input type="button" value="Contar" onclick="crono.empezar();">
+  <input type="button" value="Parar" onclick="crono.parar();">
+</div>
+</body>
+</html>
