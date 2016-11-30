@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>U5 - EJ7</title>
+    <script type="text/javascript">
+        onkeydown = function mostrarTecla(e) {
+          especial = e.altKey || e.ctrlKey || e.shiftKey || e.metaKey;
+          if (especial){
+            document.body.innerHTML = 'especial';
+          }else{
+            var tecla = String.fromCharCode(e.keyCode);
+            document.body.innerHTML = tecla;
+          }
+        }
+    </script>
+</head>
+
+
+<body>
+
+</body>
+
+</html>
