@@ -1,18 +1,45 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>U5 - EJ10</title>
+    <style media="screen">
+        #imagen {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+    <script type="application/javascript">
+        var incremento = 25;
+        function redimensiona(imagen, incremento, e) {
+            if (e.keyCode == 107 || e.keyCode == 43) {
+                if (imagen.width < 1024) {
+                    imagen.style.width = imagen.width + incremento + 'px';
+                } else {
+                    alert("Máximo alcanzado");
+                }
+            } else {
+                if (imagen.width > 150) {
+                    imagen.style.width = imagen.width - incremento + 'px';
+                } else {
+                  alert("Mínimo alcanzado");
+                }
+            }
+        }
+        function manejaZoom(e) {
+          // ATENSION MASEMA ZORROFUEGO NO LLEVARSE BIEN CON LAS KEYS
+            if (e.keyCode == 107 || e.keyCode == 43 || e.keyCode == 109 || e.keyCode == 45) {
+                redimensiona(document.getElementById("imagen"), incremento, e);
+            } else {
+                alert(e.keyCode + "Aumente o disminuya con + o - ");
+            }
+        }
+    </script>
 </head>
-<script type="application/javascript">
-var incremento = 25;
-var gTeclasEdicion = [45, 43]; // - y + array de teclas zoom
-function redimensiona(imagen, incremento) {... }
-function manejaZoom(e) {…}
-</script>
-<body onkeypress="manejaZoom()">
-   <img src="mundo.jpg" id="imagen">
+
+<body onkeypress="manejaZoom(event)">
+    <img src="img.png" id="imagen">
 </body>
+
 </html>
