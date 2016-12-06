@@ -6,22 +6,19 @@
     <title>U5 - EJ8</title>
 </head>
 <script type="text/javascript">
-    x = 0;
     onkeydown = function cambiarTexto(e) {
         if (e.shiftKey) {
-            if (x == 0) {
-                document.body.children[0].style.textTransform = 'Uppercase';
-                x++;
+            if (document.body.children[0].style.textTransform == 'lowercase') {
+                document.body.children[0].style.textTransform = 'uppercase';
             } else {
-                document.body.children[0].style.textTransform = 'Lowercase';
-                x--;
+                document.body.children[0].style.textTransform = 'lowercase';
             }
         }
     }
 </script>
 
 <body>
-    <p>Esto es un texto</p>
+    <p>esto es un texto</p>
 </body>
 
 </html>
